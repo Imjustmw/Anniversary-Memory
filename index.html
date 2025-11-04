@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Memory Portal</title>
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!-- Landing Section -->
+  <div class="landing">
+    <div class="landing-content">
+      <h1>Our Moments</h1>
+      <h2>Happy Anniversary Baby</h2>
+      <p>Scroll to begin</p>
+    </div>
+    <div class="shutter"></div>
+  </div>
+
+  <!-- Background Audio -->
+  <audio id="bg-audio" loop>
+    <source src="assets/audio/film-bg.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Memory Audio Player (for memory-specific background music) -->
+  <audio id="memory-audio" loop></audio>
+
+  <!-- Panel Audio Player (for panel hover sounds) -->
+  <audio id="panel-audio"></audio>
+
+  <!-- Memory: The Night We Met -->
+  <section id="memory-1" class="memory" data-memory-audio="assets/audio/memories/night-we-met.mp3">
+    <div class="memory-title" style="border-bottom: 1px solid white;">ACT I</div>
+    <div class="memory-title">" The Night We Met "</div>
+    
+    <!-- Comic Panels -->
+    <div class="panels">
+        <div class="panel" data-panel-audio="assets/audio/panels/night-we-met/panel1.mp3">
+            <img src="assets/images/night-we-met/panel1.png" alt="Waiting in line at the venue">
+            <div class="overlay">
+              <p>I remember waiting in line, annoyed because I hated going to parties...</p>
+            </div>
+        </div>
+
+        <div class="panel" data-panel-audio="assets/audio/panels/night-we-met/panel2.mp3">
+            <img src="assets/images/night-we-met/panel2.png" alt="First moment seeing her">
+            <div class="overlay">
+              <p>I walked through the door, and there she was...I was starstruck.</p>
+            </div>
+        </div>
+
+        <div class="panel" data-panel-audio="assets/audio/panels/night-we-met/panel3.mp3">
+            <img src="assets/images/night-we-met/panel3.png" alt="The first kiss">
+            <div class="overlay">
+              <p>I asked her to be mine — and we shared our first kiss, as awkward as it was.</p>
+            </div>
+        </div>
+
+        <div class="panel" data-panel-audio="assets/audio/panels/night-we-met/panel4.mp3">
+            <img src="assets/images/night-we-met/panel4.png" alt="Dancing all night">
+            <div class="overlay">
+              <p>We danced like there was no tomorrow — the world disappeared, and it was just us two.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Add more memory sections here as you create them -->
+  <!-- Example:
+  <section id="memory-2" class="memory" data-memory-audio="assets/audio/memories/first-birthday.mp3">
+    <div class="memory-title" style="border-bottom: 1px solid white;">ACT II</div>
+    <div class="memory-title">" First Birthday Together "</div>
+    <div class="panels">
+      <div class="panel" data-panel-audio="assets/audio/panels/first-birthday/panel1.mp3">
+        ...
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- Message Section -->
+  <section class="message-section">
+    <h3 class="message-title">My Message To You</h3>
+    <div class="message-content">
+      <p>
+        It's hard to believe that it's already been 2 years. So much has happened since I met you, a lot of hard times and decisions, a lot of pain and hurt, but also a lot of smiles, laughter, joy, and love. I know I haven't been the best boyfriend, but you know that I'll always try to be for you. I remember when I was planning your first birthday together, we didn't go out for like only a week or two. We had just gotten together not even 3 weeks into the relationship, and you wanted to leave me because you thought I got bored of the relationship and stopped trying. You overthink too much. Sometimes you just have to accept that this is real, and I'm here to stay, and I will never hurt you, and most importantly... I'll never stop trying for you. I miss them as much as you do, even if you don't believe that. I love you as much as you love me, even if you don't believe that. Heck, I spent 2 years trying to show you that. You are the love of my life Victoria. I'm not going anywhere. 2 years may be long to you, but its a tiny fraction of the time I plan to spend with you and make you happy.
+      </p>
+      <p>
+        I will continue to love you, and grow into the man of your dreams. 
+        I'll continue to work on myself every day and put in the work and effort into us so that 
+        we can be happy together and have the future we want for ourselves.
+        <br><red>You've given my world color.</red>
+        <br/><red>I love you so much baby. Happy 2nd Anniversary.</red>
+        <img src="/assets/images/static/heart.svg" alt="heart"/>
+      </p>
+    </div>
+  </section>
+
+  <!-- Master Gallery Section - All Real Captured Moments -->
+  <section class="gallery-section">
+    <h3 class="gallery-title">Our Real Captured Moments</h3>
+    <div class="gallery">
+      <!-- Night We Met -->
+      <div class="gallery-item" data-type="image" data-src="assets/images/memories/photo1.jpg">
+        <img src="assets/images/memories/photo1.jpg" alt="The night we met">
+        <div class="gallery-play-icon">📷</div>
+      </div>
+
+      <div class="gallery-item" data-type="image" data-src="assets/images/memories/photo2.JPEG">
+        <img src="assets/images/memories/photo2.JPEG" alt="The night we met">
+        <div class="gallery-play-icon">📷</div>
+      </div>
+
+      <div class="gallery-item" data-type="video" data-src="assets/videos/memories/video1.mp4">
+        <video src="assets/videos/memories/video1.mp4" muted></video>
+        <div class="gallery-play-icon">▶️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" class="lightbox-media" alt="Enlarged view">
+      <video id="lightbox-video" class="lightbox-media" controls></video>
+    </div>
+    <button class="lightbox-nav lightbox-prev">‹</button>
+    <button class="lightbox-nav lightbox-next">›</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

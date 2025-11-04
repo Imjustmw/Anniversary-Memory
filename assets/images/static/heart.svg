@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #808285;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-3" points="103.08 48.37 103.08 64 87.45 64 87.45 79.63 71.82 79.63 71.82 95.26 56.18 95.26 56.18 79.63 40.55 79.63 40.55 64 24.92 64 24.92 48.37 24.92 32.74 40.55 32.74 56.18 32.74 56.18 48.37 71.82 48.37 71.82 32.74 87.45 32.74 103.08 32.74 103.08 48.37"/>
+    <rect class="cls-1" x="103.08" y="48.37" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="103.08" y="32.74" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="87.45" y="64" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="87.45" y="17.1" width="15.63" height="15.64"/>
+    <rect class="cls-1" x="71.82" y="79.63" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="71.82" y="17.1" width="15.63" height="15.64"/>
+    <rect class="cls-1" x="56.18" y="95.26" width="15.64" height="15.64"/>
+    <rect class="cls-1" x="56.18" y="32.74" width="15.64" height="15.63"/>
+    <rect class="cls-1" x="40.55" y="79.63" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="40.55" y="17.1" width="15.63" height="15.64"/>
+    <rect class="cls-1" x="24.92" y="64" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="24.92" y="17.1" width="15.63" height="15.64"/>
+    <rect class="cls-1" x="9.29" y="48.37" width="15.63" height="15.63"/>
+    <rect class="cls-1" x="9.29" y="32.74" width="15.63" height="15.63"/>
+  </g>
+  <rect class="cls-2" x="87.45" y="32.74" width="15.63" height="15.63"/>
+</svg>

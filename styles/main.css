@@ -1,0 +1,624 @@
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #000000;
+  color: #f8f8f2;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ============================================
+   LANDING SECTION
+   ============================================ */
+
+.landing {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #40434d, #000000);
+  overflow: hidden;
+}
+
+.landing-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.landing h1 {
+  font-family: 'AirTravelers', sans-serif;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+
+.landing h2 {
+  font-family: 'AirTravelers', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.landing p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+
+/* ============================================
+   VINTAGE SHUTTER EFFECT
+   ============================================ */
+
+.shutter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: blur(0.5px) drop-shadow(0 0 0 #c9c7c7);
+  z-index: 1;
+}
+
+.shutter:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-linear-gradient(90deg, #0002 0 2px, transparent 4px 35vmin);
+  animation: vlines 0.45s steps(1) infinite;
+}
+
+.shutter:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  background-image: repeating-conic-gradient(black 0%, transparent 0.00003%, transparent 0.0005%, transparent 0.00095%),
+                    repeating-conic-gradient(black 0%, transparent 0.00005%, transparent 0.00015%, transparent 0.0009%);
+  animation: grains 0.5s steps(1) infinite;
+}
+
+@keyframes vlines {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  10% { transform: translateX(-1%); }
+  20% { transform: translateX(1%); }
+  30% {
+    transform: translateX(-2%);
+    opacity: 0.75;
+  }
+  40% { transform: translateX(3%); }
+  50% {
+    transform: translateX(-3%);
+    opacity: 0.5;
+  }
+  60% { transform: translateX(8%); }
+  70% { transform: translateX(-3%); }
+  80% {
+    transform: translateX(10%);
+    opacity: 0.25;
+  }
+  90% { transform: translateX(-2%); }
+}
+
+@keyframes grains {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(1%, 1%); }
+  30% { transform: translate(-2%, -2%); }
+  40% { transform: translate(3%, 3%); }
+  50% { transform: translate(-3%, -3%); }
+  60% { transform: translate(4%, 4%); }
+  70% { transform: translate(-4%, -4%); }
+  80% { transform: translate(2%, 2%); }
+  90% { transform: translate(-3%, -3%); }
+}
+
+
+/* ============================================
+   MEMORY SECTIONS
+   ============================================ */
+
+.memory {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0 6rem;
+}
+
+.memory-title {
+  font-family: 'Vintage', 'AirTravelers';
+  font-size: 2.5rem;
+  opacity: 0.95;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 5;
+}
+
+
+/* ============================================
+   PANEL CONTAINER & SCROLL
+   ============================================ */
+
+.panels {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100vw;
+  padding: 2rem;
+}
+
+.panels::-webkit-scrollbar {
+  height: 10px;
+}
+
+.panels::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+}
+
+
+/* ============================================
+   INDIVIDUAL PANELS
+   ============================================ */
+
+.panel {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(70vh, 85vw);
+  aspect-ratio: 1 / 1;
+  scroll-snap-align: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 0.5rem dashed #666879;
+  transition: transform 0.35s ease;
+}
+
+.panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.panel:hover {
+  transform: translateY(-5px);
+}
+
+.panel:hover img {
+  transform: scale(1.05);
+  filter: blur(1px);
+}
+
+
+/* ============================================
+   OVERLAY TEXT
+   ============================================ */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.25));
+  opacity: 0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  transition: opacity 0.4s ease;
+}
+
+.overlay p {
+  font-family: 'Inky', cursive;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  color: white;
+}
+
+.panel:hover .overlay {
+  opacity: 1;
+}
+
+
+/* ============================================
+   GALLERY SECTION
+   ============================================ */
+
+.message-section {
+  min-height: 80vh;
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-title {
+  font-family: 'Vintage';
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0.95;
+  color: #f8f8f2;
+  letter-spacing: 1px;
+  border-bottom: 1px solid white;
+}
+
+.message-content {
+  font-family: 'Inky', 'sans-serif';
+  text-align: center;
+  line-height: 2;
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+.message-content p {
+  margin-bottom: 2rem;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-content p img {
+    width: 2.5rem;
+    height: 2.5rem;
+    transform: rotate(7deg);
+}
+
+.message-content p red {
+    color: rgb(255, 146, 146);
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.gallery-section {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-title {
+  font-family: 'Vintage', 'AirTravelers';
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  color: #f8f8f2;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+  filter: brightness(1.1);
+}
+
+.gallery-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  opacity: 0.7;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-play-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* ============================================
+   LIGHTBOX MODAL
+   ============================================ */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-media {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+#lightbox-img {
+  display: none;
+}
+
+#lightbox-video {
+  display: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10000;
+  line-height: 1;
+  padding: 0;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10000;
+  line-height: 1;
+  padding: 0;
+}
+
+.lightbox-prev {
+  left: 2rem;
+}
+
+.lightbox-next {
+  right: 2rem;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .landing h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .landing h2 {
+    font-size: 0.9rem;
+  }
+
+  .memory-title {
+    font-size: 2rem;
+  }
+
+  .panel {
+    width: 85vw;
+  }
+
+  .overlay p {
+    font-size: 1.25rem;
+  }
+
+  .message-title {
+    font-size: 2rem;
+  }
+
+  .message-content {
+    font-size: 1.1rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-title {
+    font-size: 1.75rem;
+  }
+
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+
+  .lightbox-nav {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+  }
+
+  .lightbox-prev {
+    left: 1rem;
+  }
+
+  .lightbox-next {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .landing h2 {
+    font-size: 0.75rem;
+  }
+
+  .memory-title {
+    font-size: 1.5rem;
+  }
+
+  .panel {
+    width: 90vw;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+
+  .panels {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .message-title {
+    font-size: 1.75rem;
+  }
+
+  .message-content {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-title {
+    font-size: 1.5rem;
+  }
+
+  .gallery-play-icon {
+    font-size: 2.5rem;
+  }
+
+  .lightbox-nav {
+    display: none;
+  }
+}
