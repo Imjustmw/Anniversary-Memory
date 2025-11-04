@@ -2,28 +2,28 @@
 
 @font-face {
     font-family: 'AirTravelers';
-    src: url('/assets/fonts/AirTravelers.otf') format('opentype');
+    src: url('../assets/fonts/AirTravelers.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Tokyo';
-    src: url('/assets/fonts/Tokyo.ttf') format('truetype');
+    src: url('../assets/fonts/Tokyo.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Vintage';
-    src: url('/assets/fonts/Vintage.ttf') format('truetype');
+    src: url('../assets/fonts/Vintage.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Inky';
-    src: url('/assets/fonts/inky.ttf') format('truetype');
+    src: url('../assets/fonts/inky.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
